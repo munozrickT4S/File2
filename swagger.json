@@ -1,0 +1,932 @@
+{
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "schemes": [
+        "http"
+    ],
+    "host": "worp:8080",
+    "swagger": "2.0",
+    "info": {
+        "title": "worp",
+        "license": {
+            "name": "MIT",
+            "url": "https://mit-license.org"
+        },
+        "version": "0.1.0"
+    },
+    "paths": {
+        "/o/ChangeRequest": {
+            "get": {
+                "description": "Find ChangeRequest",
+                "tags": [
+                    "ChangeRequest"
+                ],
+                "summary": "Find all instances of ChangeRequest matched by filter",
+                "operationId": "findChangeRequest",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Filter defining limit. Limit is currently an alias for pagesize",
+                        "name": "limit",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Where clause in json format. where={key:value} for where the field key equal to value. Also of the form where={key:{operator:value}} where operator in [eq, lt, gt, contains, startswith]",
+                        "name": "where",
+                        "in": "query"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Filter defining order. List of fields to be sorted by.",
+                        "name": "order",
+                        "in": "query"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Fields to be included in response. If fields in nil all fields will be included.",
+                        "name": "fields",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Page number",
+                        "name": "pagenum",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Page size",
+                        "name": "pagesize",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/ChangeRequest"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#/definitions/badrequest"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "upsert",
+                "tags": [
+                    "ChangeRequest"
+                ],
+                "summary": "Create or update an instance of ChangeRequest",
+                "operationId": "upsertChangeRequest",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ChangeRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "schema": {
+                            "$ref": "#/definitions/ChangeRequest"
+                        }
+                    },
+                    "400": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#/definitions/badrequest"
+                        }
+                    }
+                }
+            }
+        },
+        "/o/ChangeRequest/count": {
+            "get": {
+                "description": "Count instances of ChangeRequest",
+                "tags": [
+                    "ChangeRequest"
+                ],
+                "summary": "count isntances of ChangeRequest",
+                "operationId": "countChangeRequest",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Where clause in json format. where={key:value} for where the field key equal to value. Also of the form where={key:{operator:value}} where operator in [eq, lt, gt, contains, startswith]",
+                        "name": "where",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "schema": {
+                            "$ref": "#/definitions/count"
+                        }
+                    },
+                    "400": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#/definitions/badrequest"
+                        }
+                    }
+                }
+            }
+        },
+        "/o/ChangeRequest/findone": {
+            "get": {
+                "description": "find first instance of ChangeRequest matched by filter",
+                "tags": [
+                    "ChangeRequest"
+                ],
+                "summary": "find first instance of ChangeRequest matched by filter",
+                "operationId": "findOneChangeRequest",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Where clause in json format. where={key:value} for where the field key equal to value. Also of the form where={key:{operator:value}} where operator in [eq, lt, gt, contains, startswith]",
+                        "name": "where",
+                        "in": "query"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Fields to be included in response. If fields in nil all fields will be included.",
+                        "name": "fields",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "schema": {
+                            "$ref": "#/definitions/ChangeRequest"
+                        }
+                    },
+                    "400": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#/definitions/badrequest"
+                        }
+                    }
+                }
+            }
+        },
+        "/o/ChangeRequest/{id}": {
+            "get": {
+                "description": "Find ChangeRequest by id",
+                "tags": [
+                    "ChangeRequest"
+                ],
+                "summary": "Find instances of ChangeRequest by id",
+                "operationId": "findByIdChangeRequest",
+                "parameters": [
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Fields to be included in response. If fields in nil all fields will be included.",
+                        "name": "fields",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "schema": {
+                            "$ref": "#/definitions/ChangeRequest"
+                        }
+                    },
+                    "400": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#/definitions/badrequest"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "update by id",
+                "tags": [
+                    "ChangeRequest"
+                ],
+                "summary": "update instance of ChangeRequest by id",
+                "operationId": "updateByIDChangeRequest",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ChangeRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "schema": {
+                            "$ref": "#/definitions/ChangeRequest"
+                        }
+                    },
+                    "400": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#/definitions/badrequest"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "delete by id",
+                "tags": [
+                    "ChangeRequest"
+                ],
+                "summary": "delete instance of ChangeRequest by id",
+                "operationId": "deleteChangeRequest",
+                "responses": {
+                    "200": {
+                        "description": "Request was successful"
+                    },
+                    "400": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#/definitions/badrequest"
+                        }
+                    }
+                }
+            },
+            "parameters": [
+                {
+                    "type": "string",
+                    "description": "The id of the ChangeRequest",
+                    "name": "id",
+                    "in": "path",
+                    "required": true
+                }
+            ]
+        },
+        "/o/ChangeRequest/{id}/exists": {
+            "get": {
+                "description": "check if instance exists",
+                "tags": [
+                    "ChangeRequest"
+                ],
+                "summary": "Check whether an instance of ChangeRequest exists",
+                "operationId": "existsChangeRequest",
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "schema": {
+                            "$ref": "#/definitions/exists"
+                        }
+                    },
+                    "400": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#/definitions/badrequest"
+                        }
+                    }
+                }
+            },
+            "parameters": [
+                {
+                    "type": "string",
+                    "description": "The id of the ChangeRequest",
+                    "name": "id",
+                    "in": "path",
+                    "required": true
+                }
+            ]
+        }
+    },
+    "definitions": {
+        "ChangeRequest": {
+            "properties": {
+                "AcceptanceCriteria": {
+                    "type": "string"
+                },
+                "ActualCost": {
+                    "type": "string"
+                },
+                "ActualEndDate": {
+                    "type": "string"
+                },
+                "ActualStartDate": {
+                    "type": "string"
+                },
+                "AllowedToClose": {
+                    "type": "string"
+                },
+                "AlternateOneStatus": {
+                    "type": "string"
+                },
+                "AlternateOneStatusText": {
+                    "type": "string"
+                },
+                "AlternateSecondStatusText": {
+                    "type": "string"
+                },
+                "ApprovalBlockID": {
+                    "type": "string"
+                },
+                "ApprovalLock": {
+                    "type": "string"
+                },
+                "ApprovedBy": {
+                    "type": "string"
+                },
+                "ApprovedByID": {
+                    "type": "string"
+                },
+                "ApprovedDateTime": {
+                    "type": "string"
+                },
+                "AssessmentApproved": {
+                    "type": "string"
+                },
+                "AssessmentApproverID1": {
+                    "type": "string"
+                },
+                "AssessmentApproverID2": {
+                    "type": "string"
+                },
+                "AssessmentApproverName1": {
+                    "type": "string"
+                },
+                "AssessmentApproverName2": {
+                    "type": "string"
+                },
+                "AssessmentDenied": {
+                    "type": "string"
+                },
+                "AuthorizationDescription": {
+                    "type": "string"
+                },
+                "AuthorizationLevel": {
+                    "type": "string"
+                },
+                "BCPModificationRequired": {
+                    "type": "string"
+                },
+                "BCPModificationRequiredNotes": {
+                    "type": "string"
+                },
+                "BackOutPlan": {
+                    "type": "string"
+                },
+                "BackupsEvaluated": {
+                    "type": "string"
+                },
+                "CABNotes": {
+                    "type": "string"
+                },
+                "CABReviewedBy": {
+                    "type": "string"
+                },
+                "CABReviewedOn": {
+                    "type": "string"
+                },
+                "CICalendarName": {
+                    "type": "string"
+                },
+                "Category": {
+                    "type": "string"
+                },
+                "ChangeID": {
+                    "type": "string",
+                    "readOnly": true
+                },
+                "CompanyID": {
+                    "type": "string"
+                },
+                "CompanyName": {
+                    "type": "string"
+                },
+                "Cost": {
+                    "type": "string"
+                },
+                "CostBenefitAnalysis": {
+                    "type": "string"
+                },
+                "CostComplete": {
+                    "type": "string"
+                },
+                "CreatedBy": {
+                    "type": "string"
+                },
+                "CreatedByID": {
+                    "type": "string"
+                },
+                "CreatedDateTime": {
+                    "type": "string"
+                },
+                "Critical": {
+                    "type": "string"
+                },
+                "Criticality": {
+                    "type": "string"
+                },
+                "CurrentStep": {
+                    "type": "string"
+                },
+                "CurrentVersion": {
+                    "type": "string"
+                },
+                "CustomerNotificationComplete": {
+                    "type": "string"
+                },
+                "CustomerNotificationDueDate": {
+                    "type": "string"
+                },
+                "CustomerNotificationOverride": {
+                    "type": "string"
+                },
+                "CustomerNotificationWarningEmailSentDate": {
+                    "type": "string"
+                },
+                "DTPDescription": {
+                    "type": "string"
+                },
+                "DateTimeOverride": {
+                    "type": "string"
+                },
+                "Description": {
+                    "type": "string"
+                },
+                "DevImplementationResource": {
+                    "type": "string"
+                },
+                "DurationInDays": {
+                    "type": "string"
+                },
+                "EmbeddedFormDisplay": {
+                    "type": "string"
+                },
+                "EmbeddedFormToggle": {
+                    "type": "string"
+                },
+                "EmergencyChange": {
+                    "type": "string",
+                    "readOnly": true
+                },
+                "EmergencyChangeOverride": {
+                    "type": "string"
+                },
+                "Eval_in_lab_or_nonProd": {
+                    "type": "string"
+                },
+                "ExpandedForm": {
+                    "type": "string"
+                },
+                "FastTrack": {
+                    "type": "string"
+                },
+                "FeasibilityAssessment": {
+                    "type": "string"
+                },
+                "FinalDisposition": {
+                    "type": "string"
+                },
+                "FinancialReviewer": {
+                    "type": "string"
+                },
+                "FirmwareOSEvaluated": {
+                    "type": "string"
+                },
+                "GlobalIssue": {
+                    "type": "string"
+                },
+                "HighestStep": {
+                    "type": "string"
+                },
+                "Impact": {
+                    "type": "string"
+                },
+                "ImpactAssesment": {
+                    "type": "string"
+                },
+                "ImplementationApproved": {
+                    "type": "string"
+                },
+                "ImplementationDenied": {
+                    "type": "string"
+                },
+                "ImplementationNotes": {
+                    "type": "string"
+                },
+                "Importance": {
+                    "type": "string"
+                },
+                "IncidentCategory": {
+                    "type": "string"
+                },
+                "IncidentSubcategory": {
+                    "type": "string"
+                },
+                "KnownError": {
+                    "type": "string"
+                },
+                "LEEmergencyFlag": {
+                    "type": "string"
+                },
+                "LEImpactAnswer1Text": {
+                    "type": "string"
+                },
+                "LEImpactAnswer1Value": {
+                    "type": "string"
+                },
+                "LEImpactAnswer2Text": {
+                    "type": "string"
+                },
+                "LEImpactAnswer2Value": {
+                    "type": "string"
+                },
+                "LERequiredFlag": {
+                    "type": "string"
+                },
+                "LERiskAnswer1Text": {
+                    "type": "string"
+                },
+                "LERiskAnswer1Value": {
+                    "type": "string"
+                },
+                "LERiskAnswer2Text": {
+                    "type": "string"
+                },
+                "LERiskAnswer2Value": {
+                    "type": "string"
+                },
+                "LERiskAnswer3Text": {
+                    "type": "string"
+                },
+                "LERiskAnswer3Value": {
+                    "type": "string"
+                },
+                "LERiskAnswer4Text": {
+                    "type": "string"
+                },
+                "LERiskAnswer4Value": {
+                    "type": "string"
+                },
+                "LastModBy": {
+                    "type": "string"
+                },
+                "LastModByID": {
+                    "type": "string"
+                },
+                "LastModDateTime": {
+                    "type": "string"
+                },
+                "LastModifiedTimeStamp": {
+                    "type": "string"
+                },
+                "MinorChangeWaitHours": {
+                    "type": "string"
+                },
+                "NecessityAssessment": {
+                    "type": "string"
+                },
+                "NextStatus": {
+                    "type": "string"
+                },
+                "NextStatusOneStep": {
+                    "type": "string"
+                },
+                "NextStatusText": {
+                    "type": "string"
+                },
+                "NoOneStep": {
+                    "type": "string"
+                },
+                "NominatedForStandardChange": {
+                    "type": "string"
+                },
+                "NormalChangeWaitDays": {
+                    "type": "string"
+                },
+                "NotDuringMaintenanceWindow": {
+                    "type": "string"
+                },
+                "NotificationRequired": {
+                    "type": "string"
+                },
+                "OrderStatus": {
+                    "type": "string"
+                },
+                "OwnedBy": {
+                    "type": "string"
+                },
+                "OwnedByEmail": {
+                    "type": "string"
+                },
+                "OwnedByID": {
+                    "type": "string"
+                },
+                "OwnedByTeam": {
+                    "type": "string"
+                },
+                "OwnedByTeamID": {
+                    "type": "string"
+                },
+                "ParentPublicID": {
+                    "type": "string"
+                },
+                "ParentRecID": {
+                    "type": "string"
+                },
+                "ParentType": {
+                    "type": "string"
+                },
+                "PercentComplete": {
+                    "type": "string"
+                },
+                "Phase": {
+                    "type": "string"
+                },
+                "Phone": {
+                    "type": "string"
+                },
+                "PostImplementationReviewNotes": {
+                    "type": "string"
+                },
+                "PrimaryCIDisplayName": {
+                    "type": "string"
+                },
+                "PrimaryCIID": {
+                    "type": "string"
+                },
+                "Priority": {
+                    "type": "string"
+                },
+                "ProposedStartDate": {
+                    "type": "string"
+                },
+                "QAReviewer": {
+                    "type": "string"
+                },
+                "Reason": {
+                    "type": "string"
+                },
+                "ReasonReferenceID": {
+                    "type": "string"
+                },
+                "RecID": {
+                    "type": "string"
+                },
+                "RejectionReason": {
+                    "type": "string"
+                },
+                "ReleaseID": {
+                    "type": "string"
+                },
+                "RequestedBy": {
+                    "type": "string"
+                },
+                "RequestedByEmail": {
+                    "type": "string"
+                },
+                "RequestedByID": {
+                    "type": "string"
+                },
+                "RequestedByManager": {
+                    "type": "string"
+                },
+                "RequestedByManagerEmail": {
+                    "type": "string"
+                },
+                "RequestedByType": {
+                    "type": "string"
+                },
+                "RequestedDateTime": {
+                    "type": "string",
+                    "readOnly": true
+                },
+                "RequiresReview": {
+                    "type": "string"
+                },
+                "RequiresServiceOutage": {
+                    "type": "string"
+                },
+                "RequiresUserTesting": {
+                    "type": "string"
+                },
+                "ResourceAssesment": {
+                    "type": "string"
+                },
+                "ReviewDate": {
+                    "type": "string"
+                },
+                "ReworkChangeRequest": {
+                    "type": "string"
+                },
+                "Risk": {
+                    "type": "string"
+                },
+                "RiskCompletedBy": {
+                    "type": "string"
+                },
+                "RiskCompletedDateTime": {
+                    "type": "string"
+                },
+                "RiskNumber": {
+                    "type": "string"
+                },
+                "RiskText": {
+                    "type": "string"
+                },
+                "RollOutPlan": {
+                    "type": "string"
+                },
+                "SMSModificiationRequired": {
+                    "type": "string"
+                },
+                "SMSModificiationRequiredNotes": {
+                    "type": "string"
+                },
+                "ScheduledEndDate": {
+                    "type": "string"
+                },
+                "SecurityReviewer": {
+                    "type": "string"
+                },
+                "SecurityRisk": {
+                    "type": "string"
+                },
+                "SecurityRiskNotes": {
+                    "type": "string"
+                },
+                "SelectedStatus": {
+                    "type": "string"
+                },
+                "SelfServiceEmergency": {
+                    "type": "string"
+                },
+                "Service": {
+                    "type": "string"
+                },
+                "ServiceBlackoutEndDateTime": {
+                    "type": "string"
+                },
+                "ServiceBlackoutStartDateTime": {
+                    "type": "string"
+                },
+                "ServiceCalendarName": {
+                    "type": "string"
+                },
+                "ServiceCatalogID": {
+                    "type": "string"
+                },
+                "ShortDescription": {
+                    "type": "string"
+                },
+                "ShowOfHandsApproval": {
+                    "type": "string"
+                },
+                "StandardApprovedItems": {
+                    "type": "string"
+                },
+                "StandardTemplate": {
+                    "type": "string"
+                },
+                "Status": {
+                    "type": "string"
+                },
+                "StatusID": {
+                    "type": "string"
+                },
+                "StatusOrder": {
+                    "type": "string"
+                },
+                "Subcategory": {
+                    "type": "string"
+                },
+                "SubmittedAssessApproval": {
+                    "type": "string"
+                },
+                "SubmittedImplementationApproval": {
+                    "type": "string"
+                },
+                "SupportReviewer": {
+                    "type": "string"
+                },
+                "TabVisibility": {
+                    "type": "string"
+                },
+                "TechnicalAnalysisComplete": {
+                    "type": "string"
+                },
+                "TechnicalReviewer": {
+                    "type": "string"
+                },
+                "Tested": {
+                    "type": "string"
+                },
+                "Title": {
+                    "type": "string"
+                },
+                "TotalImpactText": {
+                    "type": "string"
+                },
+                "TotalImpactValue": {
+                    "type": "string"
+                },
+                "TotalRiskText": {
+                    "type": "string"
+                },
+                "TotalRiskValue": {
+                    "type": "string"
+                },
+                "TriggerNextStatus": {
+                    "type": "string"
+                },
+                "Type": {
+                    "type": "string"
+                },
+                "Urgency": {
+                    "type": "string"
+                },
+                "VisibleToCustomerPortal": {
+                    "type": "string"
+                },
+                "WorkAroundExists": {
+                    "type": "string"
+                },
+                "_NewCIID": {
+                    "type": "string"
+                },
+                "_Set_Dependency": {
+                    "type": "string"
+                },
+                "_Status_Set": {
+                    "type": "string"
+                },
+                "_Step_Set": {
+                    "type": "string"
+                }
+            }
+        },
+        "badrequest": {
+            "properties": {
+                "error": {
+                    "type": "string"
+                }
+            }
+        },
+        "count": {
+            "properties": {
+                "count": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "exists": {
+            "properties": {
+                "exists": {
+                    "type": "boolean"
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "sessionToken": {
+            "description": "OAuth2 password flow",
+            "type": "oauth2",
+            "flow": "password",
+            "tokenUrl": "http://cms91demo170401.westcentralus.cloudapp.azure.com/CherwellAPI/token",
+            "scopes": {
+                "user": "User authentication"
+            }
+        }
+    },
+    "security": [
+        {
+            "sessionToken": []
+        }
+    ]
+}
